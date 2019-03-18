@@ -8,7 +8,8 @@ from discord.ext import commands
 
 cogs_extensions = [
     "cogs.events",
-    "cogs.commands"
+    "cogs.commands",
+    "cogs.error_handler"
 ]
 
 bot = commands.Bot(command_prefix='$',
