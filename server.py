@@ -5,6 +5,8 @@ from flask_nav import register_renderer
 from flask_nav.elements import *
 from flask_bootstrap import Bootstrap
 from flask_bootstrap.nav import BootstrapRenderer
+from dominate import tags
+from hashlib import sha1
 
 
 app = Flask(__name__)
@@ -18,6 +20,17 @@ class Subview(View):
     pass
 
 
+class Banner(Navbar):
+
+    def __init__(self, text, endpoint, **kwargs):
+        super(text)
+        self.endpoint = endpoint
+        self.url_for_kwargs = kwargs
+
+    def get_url(self):
+        return url_for(self.endpoint, **self.url_for_kwargs)
+
+
 class MyNavRenderer(BootstrapRenderer):
 
     def visit_Navbar(self, node):
@@ -27,6 +40,9 @@ class MyNavRenderer(BootstrapRenderer):
         container_tag = nav_tag.children[0]
         div_header = container_tag.children[0]
         div_header['class'] = 'd-flex flex-grow-1'
+
+        button_tag = div_header.children[0]
+        button_tag['class'] = "navbar-toggler"
 
         div_nav = container_tag.children[1]
         div_nav['class'] += ' flex-grow-1 text-right'
@@ -68,7 +84,7 @@ class MyNavRenderer(BootstrapRenderer):
 
 @nav.navigation()
 def my_navbar():
-    return Navbar('Python Playground',
+    return Navbar(Link('Python Playground', '#'),
                   View('Home', 'index'),
                   View('Calendar', 'index'),
                   View('Configuration', 'index'),
@@ -78,6 +94,7 @@ def my_navbar():
                            Subview('Logout', 'index')
                            )
                   )
+
 
 
 @app.route("/")

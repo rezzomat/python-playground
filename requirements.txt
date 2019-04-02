@@ -4,10 +4,8 @@ attrs==19.1.0
 cffi==1.12.2
 chardet==3.0.4
 Click==7.0
-discord.py==1.0.0a1762+gf43690b
 dominate==2.3.5
 Flask==1.0.2
-Flask-Bootstrap==4.3.1.1.dev1
 flask-nav==0.6
 Flask-WTF==0.14.2
 idna==2.8
