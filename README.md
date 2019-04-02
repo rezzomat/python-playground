@@ -11,6 +11,7 @@ Python 3.6+ is required. Installing package dependencies via:
 Extra dependencies:
 
  - Discord.py [rewrite]: `pip install git+https://github.com/Rapptz/discord.py@rewrite#egg=discord.py[voice]`
+ - flask-bootstrap (Bootstrap 4.3): `pip install git+ssh://git@github.com/naiii/flask-bootstrap.git`
  
 ## Config
 `config.ini` file required in the root directory with following fields:
