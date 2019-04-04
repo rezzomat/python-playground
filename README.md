@@ -19,4 +19,7 @@ Extra dependencies:
 ```ini
 [Discord]
 token=<discord-token>
+client_id=<client-id>
+client_secret=<client-secret>
+
 ```

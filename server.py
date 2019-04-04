@@ -20,6 +20,9 @@ from flask_sqlalchemy import SQLAlchemy
 
 from requests_oauthlib import OAuth2Session
 
+from config import client_id
+from config import client_secret
+
 import os
 
 
@@ -140,9 +143,9 @@ def index():
 # Auth
 # =====================================================
 
-OAUTH2_CLIENT_ID = 350502671137898498
+OAUTH2_CLIENT_ID = int(client_id)
 OAUTH2_REDIRECT_URI = 'http://localhost:5000/discord/callback'
-OAUTH2_CLIENT_SECRET = 'dyIqCZsCf7jSSbYNppa96CWBo2Sp7dtg'
+OAUTH2_CLIENT_SECRET = client_secret
 API_BASE_URL = 'https://discordapp.com/api'
 TOKEN_URL = API_BASE_URL + '/oauth2/token'
 AUTHORIZATION_BASE_URL = API_BASE_URL + '/oauth2/authorize'

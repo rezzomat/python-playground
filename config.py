@@ -25,3 +25,9 @@ def config_section_map(section):
 # Bot setup
 #
 bot_token = config_section_map('Discord')['token']
+
+#
+# Discord Auth
+#
+client_id = config_section_map('Discord')['client_id']
+client_secret = config_section_map('Discord')['client_secret']
