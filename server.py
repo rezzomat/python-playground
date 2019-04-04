@@ -77,7 +77,10 @@ class MyNavRenderer(BootstrapRenderer):
 
     def visit_View(self, node):
         view_tag = super(MyNavRenderer, self).visit_View(node)
-        view_tag['class'] += ' nav-item'
+        if 'class' in view_tag.attributes:
+            view_tag['class'] += ' nav-item'
+        else:
+            view_tag.attributes['class'] = 'nav-item'
 
         a_tag = view_tag.children[0]
         if 'class' in a_tag.attributes:
@@ -113,7 +116,7 @@ def my_navbar():
                       View('Home', 'index'),
                       View('Calendar', 'index'),
                       View('Configuration', 'index'),
-                      Subgroup('Auth',
+                      Subgroup(current_user.username,
                                Text(current_user.username),
                                Separator(),
                                Subview('Logout', 'discord_logout')
@@ -124,11 +127,7 @@ def my_navbar():
                       View('Home', 'index'),
                       View('Calendar', 'index'),
                       View('Configuration', 'index'),
-                      Subgroup('Auth',
-                               Subview('Login', 'discord_login'),
-                               Separator(),
-                               Subview('Logout', 'index')
-                               )
+                      View('Login', 'discord_login')
                       )
 
 
