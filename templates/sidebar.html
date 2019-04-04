@@ -1,0 +1,20 @@
+{% macro link(id, href, text, active=False) %}
+<li class="nav-item">
+    <a class="nav-link {{ 'active' if active else '' }}" href="{{ href if href.startswith('#') else '#'+href }}" id="{{ id }}" data-toggle="tab" role="tab" aria-controls="guild1" aria-selected="true">{{ text }}</a>
+</li>
+{% endmacro %}
+
+{% macro content_item(id, labeled_by, content, active=False) %}
+    <div id="{{ id }}" class="tab-pane {{ 'active' if active else '' }}" role="tabpanel" aria-labelledby="{{ labeled_by }}">
+        {{ content | safe }}
+    </div>
+{% endmacro %}
+
+{% macro content_block(content) %}
+    <div class="tab-content">
+        {{ content | safe }}
+    </div>
+{% endmacro %}
+
+
+

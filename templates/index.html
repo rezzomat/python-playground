@@ -1,6 +1,65 @@
 {% extends "bootstrap/base.html" %}
+{% import "sidebar.html" as sidebar %}
+
+
+{% set guild1_content %}
+<div class="row m-1">
+    <div class="col col-md-6">
+        <p>command_name</p>
+    </div>
+    <div class="col col-md-4"><select class="selectpicker" multiple="" data-live-search="true"><option value="test">test</option><option value="test2">test2</option><option value="test3">test3</option></select></div>
+    <div class="col col-md-2">
+        <div class="form-check"><input class="form-check-input d-lg-flex" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Active</label></div>
+    </div>
+</div>
+{% endset %}
+{% set guild2_content %}
+    <p>Hello this is a different test</p>
+{% endset %}
+{% set guild3_content %}
+    <p>Hello this is a completly different test</p>
+{% endset %}
+{% set sidebar_content %}
+{{ sidebar.content_item('guild1', 'guild1-tab', guild1_content, active=True) }}
+{{ sidebar.content_item('guild2', 'guild2-tab', guild2_content) }}
+{{ sidebar.content_item('guild3', 'guild3-tab', guild3_content) }}
+{% endset %}
+
+
 {% block title %}Index{% endblock %}
+{% block styles %}
+{{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Navigation-Clean.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/styles.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+{% endblock %}
+{% block head %}
+    {{ super() }}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+{% endblock %}
 {% block navbar %}
 {{ nav.my_navbar.render(renderer='navbar') }}
 {% endblock %}
-{% block content %}{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col col-md-2 m1">
+        <ul class="nav nav-tabs nav-pills nav-fill flex-column">
+            {{ sidebar.link(id='guild1-tab', href='#guild1', text='Guild 1', active=True) }}
+            {{ sidebar.link(id='guild2-tab', href='#guild2', text='Guild 2') }}
+            {{ sidebar.link(id='guild3-tab', href='#guild3', text='Guild 3') }}
+        </ul>
+    </div>
+    <div class="col col-md-10">
+        {{ sidebar.content_block(sidebar_content) }}
+    </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+{# <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>#}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+{% endblock %}
