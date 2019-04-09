@@ -31,3 +31,11 @@ bot_token = config_section_map('Discord')['token']
 #
 client_id = config_section_map('Discord')['client_id']
 client_secret = config_section_map('Discord')['client_secret']
+
+
+#
+# GitHub
+#
+github_token = config_section_map('GitHub')['token']
+github_owner = config_section_map('GitHub')['owner']
+github_repo = config_section_map('GitHub')['repo']

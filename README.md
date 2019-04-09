@@ -22,4 +22,9 @@ token=<discord-token>
 client_id=<client-id>
 client_secret=<client-secret>
 
+[GitHub]
+token=<token>
+owner=<github repo owner>
+repo=<github repo name>
+
 ```
