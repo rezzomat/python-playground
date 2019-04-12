@@ -25,7 +25,7 @@ if __name__ == '__main__':
     }
 
     endpoint = "repos/{owner}/{repo}/issues".format(owner=github_owner, repo=github_repo)
-    response = post_request(endpoint, data=data)
+    response = get_request(endpoint)
     if response.status_code == 200:
         print(response.json())
     else:
