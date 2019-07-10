@@ -27,4 +27,15 @@ token=<token>
 owner=<github repo owner>
 repo=<github repo name>
 
+[Postgres]
+host=<host>
+user=<user>
+password=<pw>
+database=<db>
+
+[RabbitMQ]
+mq_user=<rabbitmq_user>
+mq_password=<rabbitmq_pwd>
+mq_host=<host>
+mq_port=<port>
 ```

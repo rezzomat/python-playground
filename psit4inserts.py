@@ -3,9 +3,9 @@ from random import randint
 from random import choice
 
 
-config_ids = ['0962a74d-2322-44dc-9184-7ed214c6c4b0', '65174d16-d00d-4da2-8a9c-789030fbbad0',
-              '71992353-3804-4cdc-bf67-df2adb13b331', 'b1e6cf3c-32b8-4611-b9eb-2e137dc27a7f',
-              'b5a69be5-b91b-444a-83da-48216a2ce053']
+config_ids = ['04700c39-608d-4f7e-8d60-e3a01abc3d75', '1ca45209-b40e-45c4-8db0-2f3ad500094c',
+              '2d54fc54-b8d0-4e00-ae34-e0441bf09ce7', '8f5a5414-b42e-4a0f-9b8d-2965e6b755e7']  # ,
+              # 'd5ddfff3-56eb-4991-868b-c971860d6c8f']
 
 
 def generate_value():

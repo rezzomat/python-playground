@@ -39,3 +39,19 @@ client_secret = config_section_map('Discord')['client_secret']
 github_token = config_section_map('GitHub')['token']
 github_owner = config_section_map('GitHub')['owner']
 github_repo = config_section_map('GitHub')['repo']
+
+#
+# Postgres
+#
+pg_host = config_section_map('Postgres')['host']
+pg_user = config_section_map('Postgres')['user']
+pg_password = config_section_map('Postgres')['password']
+pg_database = config_section_map('Postgres')['database']
+
+#
+# RabbitMQ
+#
+mq_user = config_section_map('RabbitMQ')['mq_user']
+mq_password = config_section_map('RabbitMQ')['mq_password']
+mq_host = config_section_map('RabbitMQ')['mq_host']
+mq_port = config_section_map('RabbitMQ')['mq_port']
