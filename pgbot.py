@@ -6,7 +6,7 @@ import logging
 from cogs import asyncpg_events
 
 
-def get_logger(name):
+def get_logger(name, pg):
     logger = logging.getLogger(name)
     logger.setLevel(logging.INFO)
     logging.basicConfig(format='%(asctime)-15s %(levelname)-8s %(name)-15s %(message)s')
@@ -18,16 +18,18 @@ class AsyncPgBot(commands.Bot):
     def __init__(self):
         super().__init__(command_prefix='!')
         self.pg = None
-        self.logger = get_logger(self.__class__.__name__)
-        self.load_extension('cogs.events')
-        self.load_extension('cogs.error_handler')
-        self.load_extension('cogs.commands')
-        self.load_extension('cogs.asyncpg_events')
+        self.logger = None
 
     async def on_connect(self):
         if not self.pg:
             self.pg = await asyncpg.connect(host=config.pg_host, user=config.pg_user, password=config.pg_password,
                                             database=config.pg_database)
+
+        self.logger = get_logger(self.__class__.__name__, self.pg)
+        self.load_extension('cogs.events')
+        self.load_extension('cogs.error_handler')
+        self.load_extension('cogs.commands')
+        self.load_extension('cogs.asyncpg_events')
 
     def load_extension(self, name):
         super().load_extension(name)
